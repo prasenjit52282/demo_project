@@ -1,5 +1,7 @@
 package empdb;
 
+import empdb.Controllers.RController;
+import empdb.DB.Emp;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
