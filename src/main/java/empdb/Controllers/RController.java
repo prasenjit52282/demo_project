@@ -41,18 +41,18 @@ public class RController {
     @PutMapping("/update/{id}")
      String update(@PathVariable Long id, @RequestBody Emp emp){
         Boolean stat=db.update(id,emp);
-        if (stat==true)
+        if (stat) //means true
             return "Record Updated";
         else
-            throw new EmployeeNotFoundException(id);
+            throw new EmployeeNotFoundException("Could not find employee{id:"+id+"} so record not updated");
     }
 
     @DeleteMapping("/delete/{id}")
     String delete(@PathVariable Long id){
         Boolean stat=db.delete(id);
-        if (stat==true)
+        if (stat) //means true
             return "Record Deleted";
         else
-            throw new EmployeeNotFoundException(id);
+            throw new EmployeeNotFoundException("Could not find employee{id:"+id+"} so record could not be deleted");
     }
 }
