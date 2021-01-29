@@ -4,6 +4,7 @@ import empdb.DB.DataBaseService;
 import empdb.DB.Emp;
 import empdb.ErrorHandlers.EmployeeNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,8 +19,9 @@ public class RController {
         return "hello from the server";
     }
 
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping("/findAll")
-    Iterable<Emp> findall(){
+    @ResponseBody  Iterable<Emp> findall(){
         return db.findAll();
     }
 
