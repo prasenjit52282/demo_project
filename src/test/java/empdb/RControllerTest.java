@@ -61,7 +61,7 @@ public class RControllerTest extends AbstractTest {
         String uri = "/delete/2";
         MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.delete(uri)).andReturn();
         int status = mvcResult.getResponse().getStatus();
-        assertEquals(200, status);
+        assertEquals(400, status);
         String content = mvcResult.getResponse().getContentAsString();
         assertTrue(content.contains("Could not find employee"));
     }
@@ -76,7 +76,7 @@ public class RControllerTest extends AbstractTest {
                 .content(inputJson)).andReturn();
 
         int status = mvcResult.getResponse().getStatus();
-        assertEquals(200, status);
+        assertEquals(400, status);
         String content = mvcResult.getResponse().getContentAsString();
         assertTrue(content.contains("Could not find employee"));
     }
